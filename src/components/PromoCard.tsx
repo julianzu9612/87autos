@@ -21,7 +21,7 @@ export function PromoCard() {
                 <>
                     <div className="absolute inset-0 z-0">
                         <Image
-                            src="/bmw-promo.jpg"
+                            src="/bmw-promo.png"
                             alt="BMW 87 Autos"
                             fill
                             className="object-cover opacity-60"
