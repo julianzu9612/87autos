@@ -17,6 +17,20 @@ const assistData = [
     { name: "M. Johnson", assists: 10, team: "Boxer" },
 ];
 
+const conversionData = [
+    { name: "O-Line", rate: 78 },
+    { name: "D-Line", rate: 42 },
+    { name: "Huck Plays", rate: 55 },
+    { name: "Red Zone", rate: 88 },
+];
+
+const paceData = [
+    { name: "Q1", pace: 3.2 },
+    { name: "Q2", pace: 3.6 },
+    { name: "Q3", pace: 3.1 },
+    { name: "Q4", pace: 3.8 },
+];
+
 export default function StatsPage() {
     return (
         <div className="p-4 space-y-8">
@@ -84,6 +98,50 @@ export default function StatsPage() {
                         />
                         <p className="text-[10px] text-muted-foreground text-center mt-2">
                             Key assists coming from midfield handlers.
+                        </p>
+                    </div>
+
+                    {/* Conversion Rates */}
+                    <div className="bg-secondary rounded-xl p-4 border border-border">
+                        <h3 className="text-xs font-bold mb-3 text-center">Conversion Rates</h3>
+                        <div className="h-48">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={conversionData} layout="vertical" margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
+                                    <XAxis type="number" domain={[0, 100]} hide />
+                                    <YAxis dataKey="name" type="category" width={90} tick={{ fill: '#A3A3A3', fontSize: 11 }} axisLine={false} tickLine={false} />
+                                    <Tooltip
+                                        cursor={{ fill: 'transparent' }}
+                                        contentStyle={{ backgroundColor: '#1A1A1A', borderColor: '#333333', color: '#FAFAFA' }}
+                                        formatter={(value: number) => [`${value}%`, "Rate"]}
+                                    />
+                                    <Bar dataKey="rate" fill="#D4AF37" radius={[0, 4, 4, 0]} barSize={14} />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                        <p className="text-[10px] text-muted-foreground text-center mt-2">
+                            Red zone efficiency leading; D-line needs more conversions.
+                        </p>
+                    </div>
+
+                    {/* Pace by Quarter */}
+                    <div className="bg-secondary rounded-xl p-4 border border-border">
+                        <h3 className="text-xs font-bold mb-3 text-center">Scoring Pace by Quarter</h3>
+                        <div className="h-48">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={paceData} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
+                                    <XAxis dataKey="name" tick={{ fill: '#A3A3A3', fontSize: 11 }} axisLine={false} tickLine={false} />
+                                    <YAxis tick={{ fill: '#A3A3A3', fontSize: 11 }} axisLine={false} tickLine={false} />
+                                    <Tooltip
+                                        cursor={{ fill: 'rgba(212,175,55,0.05)' }}
+                                        contentStyle={{ backgroundColor: '#1A1A1A', borderColor: '#333333', color: '#FAFAFA' }}
+                                        formatter={(value: number) => [`${value.toFixed(1)} pts/min`, "Pace"]}
+                                    />
+                                    <Bar dataKey="pace" fill="#D4AF37" radius={[4, 4, 0, 0]} barSize={18} />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                        <p className="text-[10px] text-muted-foreground text-center mt-2">
+                            Late-game pace spikes; maintain tempo from Q2 onwards.
                         </p>
                     </div>
                 </div>
