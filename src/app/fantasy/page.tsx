@@ -120,11 +120,16 @@ export default function FantasyPage() {
     const player = slot.playerId ? poolMap.get(slot.playerId) : null;
     const isActive = activeSlot === slot.id;
     return (
-      <button
+      <div
         key={slot.id}
+        role="button"
+        tabIndex={0}
         onClick={() => setActiveSlot(slot.id)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") setActiveSlot(slot.id);
+        }}
         className={cn(
-          "w-full rounded-xl border px-3 py-3 text-left transition-colors shadow-sm",
+          "w-full rounded-xl border px-3 py-3 text-left transition-colors shadow-sm cursor-pointer",
           player
             ? "bg-black/30 border-primary/40"
             : "bg-black/10 border-border hover:border-primary/30",
@@ -162,7 +167,7 @@ export default function FantasyPage() {
         ) : (
           <p className="mt-2 text-sm text-muted-foreground">Toca para asignar desde el pool.</p>
         )}
-      </button>
+      </div>
     );
   };
 
