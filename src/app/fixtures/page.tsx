@@ -9,8 +9,8 @@ export default function FixturesPage() {
                 <div>
                     <h2 className="text-sm font-medium text-muted-foreground mb-2 uppercase tracking-wider">Today</h2>
                     <MatchCard
-                        homeTeam="Velocity"
-                        awayTeam="Turbine"
+                        homeTeam="Euforia"
+                        awayTeam="Discountry"
                         date="Today"
                         time="19:00"
                         location="Estadio 87 Arena"
@@ -22,8 +22,8 @@ export default function FixturesPage() {
                 <div>
                     <h2 className="text-sm font-medium text-muted-foreground mb-2 uppercase tracking-wider">Tomorrow</h2>
                     <MatchCard
-                        homeTeam="Nitrogen"
-                        awayTeam="Carbon"
+                        homeTeam="Rocket"
+                        awayTeam="Lanceros"
                         date="Nov 29"
                         time="18:00"
                         location="Campo Norte"
@@ -31,8 +31,8 @@ export default function FixturesPage() {
                         className="mb-3"
                     />
                     <MatchCard
-                        homeTeam="Apex"
-                        awayTeam="Redline"
+                        homeTeam="Makawa"
+                        awayTeam="D-Crash"
                         date="Nov 29"
                         time="20:00"
                         location="Campo Sur"
@@ -44,8 +44,8 @@ export default function FixturesPage() {
                 <div>
                     <h2 className="text-sm font-medium text-muted-foreground mb-2 uppercase tracking-wider">Dec 1</h2>
                     <MatchCard
-                        homeTeam="Boxer"
-                        awayTeam="Aero"
+                        homeTeam="Rocket"
+                        awayTeam="Discountry"
                         date="Dec 1"
                         time="10:00"
                         location="Estadio 87 Arena"

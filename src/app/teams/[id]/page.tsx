@@ -1,16 +1,8 @@
 import { TeamDetailClient } from "@/components/TeamDetailClient";
+import { teams } from "@/lib/teams";
 
 export async function generateStaticParams() {
-    return [
-        { id: "velocity" },
-        { id: "turbine" },
-        { id: "boxer" },
-        { id: "v8" },
-        { id: "aero" },
-        { id: "drift" },
-        { id: "nitrogen" },
-        { id: "carbon" },
-    ];
+    return teams.map((team) => ({ id: team.id }));
 }
 
 export default function TeamDetailPage() {

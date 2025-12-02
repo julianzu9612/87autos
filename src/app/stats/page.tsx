@@ -4,17 +4,18 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recha
 import { TacticalMap } from "@/components/TacticalMap";
 
 const data = [
-    { name: "Velocity", goals: 75 },
-    { name: "Turbine", goals: 68 },
-    { name: "Boxer", goals: 62 },
-    { name: "V8", goals: 58 },
-    { name: "Aero", goals: 45 },
+    { name: "Euforia", goals: 75 },
+    { name: "Discountry", goals: 68 },
+    { name: "Rocket", goals: 62 },
+    { name: "Lanceros", goals: 58 },
+    { name: "Makawa", goals: 45 },
 ];
 
 const assistData = [
-    { name: "J. Doe", assists: 15, team: "Velocity" },
-    { name: "A. Smith", assists: 12, team: "Turbine" },
-    { name: "M. Johnson", assists: 10, team: "Boxer" },
+    { name: "John Quiroga", assists: 15, team: "Euforia" },
+    { name: "Luis Tapias", assists: 12, team: "Euforia" },
+    { name: "Milton Álvarez", assists: 11, team: "Discountry" },
+    { name: "José Vargas", assists: 10, team: "Discountry" },
 ];
 
 const paceData = [

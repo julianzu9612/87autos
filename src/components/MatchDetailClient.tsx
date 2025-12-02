@@ -4,23 +4,19 @@ import { MatchCard } from "@/components/MatchCard";
 import { TacticalMap } from "@/components/TacticalMap";
 import { ChevronLeft, Share2 } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 
 export function MatchDetailClient() {
-    const params = useParams();
-    const id = params.id;
-
     // Mock data based on ID
     const matchData = {
         id: "1",
-        homeTeam: "Velocity Vipers",
-        awayTeam: "Turbine Titans",
-        homeScore: 14,
+        homeTeam: "Euforia",
+        awayTeam: "Discountry",
+        homeScore: 15,
         awayScore: 12,
         status: "live" as "live" | "upcoming" | "finished",
         time: "58'",
-        venue: "Neon Arena",
-        location: "Neon Arena",
+        venue: "Liga Estelar Arena",
+        location: "Liga Estelar Arena",
         date: "Today"
     };
 

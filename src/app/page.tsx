@@ -33,8 +33,8 @@ export default function Home() {
           </Link>
         </div>
         <MatchCard
-          homeTeam="Velocity"
-          awayTeam="Turbine"
+          homeTeam="Euforia"
+          awayTeam="Discountry"
           date="Today"
           time="19:00"
           location="Estadio 87 Arena"
@@ -48,20 +48,20 @@ export default function Home() {
         <h2 className="text-lg font-bold mb-3">Recent Results</h2>
         <div className="space-y-3">
           <MatchCard
-            homeTeam="Boxer"
-            awayTeam="V8"
-            homeScore={15}
-            awayScore={13}
+            homeTeam="Rocket"
+            awayTeam="Euforia"
+            homeScore={12}
+            awayScore={15}
             date="Yesterday"
             time="20:00"
             location="Campo Norte"
             status="finished"
           />
           <MatchCard
-            homeTeam="Aero"
-            awayTeam="Drift"
-            homeScore={12}
-            awayScore={14}
+            homeTeam="Discountry"
+            awayTeam="Lanceros"
+            homeScore={14}
+            awayScore={11}
             date="Yesterday"
             time="18:00"
             location="Campo Sur"
@@ -91,9 +91,9 @@ export default function Home() {
             </thead>
             <tbody className="divide-y divide-border/50">
               {[
-                { rank: 1, name: "Velocity", played: 5, won: 5, pts: 15 },
-                { rank: 2, name: "Turbine", played: 5, won: 4, pts: 12 },
-                { rank: 3, name: "Boxer", played: 5, won: 3, pts: 9 },
+                { rank: 1, name: "Euforia", played: 5, won: 5, pts: 15 },
+                { rank: 2, name: "Discountry", played: 5, won: 4, pts: 12 },
+                { rank: 3, name: "Rocket", played: 5, won: 3, pts: 9 },
               ].map((team) => (
                 <tr key={team.name} className="group">
                   <td className="py-3 font-bold text-muted-foreground group-first:text-primary">

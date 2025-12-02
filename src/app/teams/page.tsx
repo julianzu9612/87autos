@@ -1,16 +1,6 @@
-import { ChevronRight, Users } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-
-const teams = [
-    { id: "velocity", name: "Velocity", players: 14, wins: 5 },
-    { id: "turbine", name: "Turbine", players: 15, wins: 4 },
-    { id: "boxer", name: "Boxer", players: 13, wins: 3 },
-    { id: "v8", name: "V8", players: 16, wins: 3 },
-    { id: "aero", name: "Aero", players: 14, wins: 2 },
-    { id: "drift", name: "Drift", players: 15, wins: 2 },
-    { id: "nitrogen", name: "Nitrogen", players: 14, wins: 1 },
-    { id: "carbon", name: "Carbon", players: 13, wins: 0 },
-];
+import { teams } from "@/lib/teams";
 
 export default function TeamsPage() {
     return (
@@ -30,7 +20,9 @@ export default function TeamsPage() {
                             </div>
                             <div>
                                 <h3 className="font-bold">{team.name}</h3>
-                                <p className="text-xs text-muted-foreground">{team.players} Players</p>
+                                <p className="text-xs text-muted-foreground">
+                                    {team.players.length > 0 ? `${team.players.length} Players` : "Roster coming soon"}
+                                </p>
                             </div>
                         </div>
                         <ChevronRight className="w-4 h-4 text-muted-foreground" />
