@@ -5,16 +5,18 @@ import { cn } from "@/lib/utils";
 interface Event {
     x: number;
     y: number;
-    type: "goal" | "turnover" | "block" | "assist_start" | "assist_end";
+    type: "goal" | "turnover" | "block" | "assist_start" | "assist_end" | "lane" | "pull";
     value?: number; // For heatmap intensity
     relatedEventId?: string; // To link assist start to end
     id?: string;
+    toX?: number;
+    toY?: number;
 }
 
 interface TacticalMapProps {
     events: Event[];
     className?: string;
-    mode?: "standard" | "heatmap" | "assists";
+    mode?: "standard" | "heatmap" | "assists" | "lanes" | "pulls";
 }
 
 export function TacticalMap({ events, className, mode = "standard" }: TacticalMapProps) {
@@ -95,6 +97,60 @@ export function TacticalMap({ events, className, mode = "standard" }: TacticalMa
                             />
                         );
                     })}
+                </svg>
+            )}
+
+            {/* Lane vectors (diagonal runs or counter attacks) */}
+            {mode === "lanes" && (
+                <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none">
+                    <defs>
+                        <marker id="arrowhead-lane" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#7DD3FC" />
+                        </marker>
+                    </defs>
+                    {events
+                        .filter((e) => e.toX !== undefined && e.toY !== undefined)
+                        .map((lane, i) => (
+                            <g key={i} className="opacity-80">
+                                <line
+                                    x1={`${lane.x}%`}
+                                    y1={`${lane.y}%`}
+                                    x2={`${lane.toX}%`}
+                                    y2={`${lane.toY}%`}
+                                    stroke="#7DD3FC"
+                                    strokeWidth="2"
+                                    strokeDasharray="6 3"
+                                    markerEnd="url(#arrowhead-lane)"
+                                />
+                                <circle cx={`${lane.x}%`} cy={`${lane.y}%`} r="3" fill="#1E90FF" />
+                                <circle cx={`${lane.toX}%`} cy={`${lane.toY}%`} r="3" fill="#7DD3FC" />
+                            </g>
+                        ))}
+                </svg>
+            )}
+
+            {/* Pull trajectories (arrows from top to landing zones) */}
+            {mode === "pulls" && (
+                <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none">
+                    <defs>
+                        <marker id="arrowhead-pull" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#CCFF00" />
+                        </marker>
+                    </defs>
+                    {events.map((pull, i) => (
+                        <g key={i} className="opacity-80">
+                            <line
+                                x1={`${pull.x}%`}
+                                y1="4%"
+                                x2={`${pull.x}%`}
+                                y2={`${pull.y}%`}
+                                stroke="#CCFF00"
+                                strokeWidth="2"
+                                markerEnd="url(#arrowhead-pull)"
+                            />
+                            <circle cx={`${pull.x}%`} cy={`${pull.y}%`} r="4" fill="#CCFF00" />
+                        </g>
+                    ))}
                 </svg>
             )}
 
