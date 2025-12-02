@@ -1,6 +1,6 @@
 import { MatchCard } from "@/components/MatchCard";
 import { PromoCard } from "@/components/PromoCard";
-import { ChevronRight, Trophy, Zap } from "lucide-react";
+import { ChevronRight, Trophy, Zap, Gift } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -23,6 +23,26 @@ export default function Home() {
 
       {/* Promo / Gamification */}
       <PromoCard />
+
+      {/* Rewards Snapshot */}
+      <Link
+        href="/rewards"
+        className="block bg-gradient-to-r from-primary/15 via-primary/10 to-transparent border border-primary/30 rounded-xl p-4 hover:border-primary/60 transition-colors"
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+              <Gift className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-widest text-primary font-semibold">87 Rewards</p>
+              <h3 className="text-base font-bold">Suma puntos y canjea premios 87</h3>
+              <p className="text-xs text-muted-foreground">Completa retos, juega fantasy y desbloquea beneficios.</p>
+            </div>
+          </div>
+          <ChevronRight className="w-4 h-4 text-primary" />
+        </div>
+      </Link>
 
       {/* Featured Match */}
       <section>

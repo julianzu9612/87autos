@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Calendar, Users, Activity, Trophy } from "lucide-react";
+import { Home, Calendar, Users, Activity, Trophy, Gift } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function BottomNav() {
@@ -12,6 +12,7 @@ export function BottomNav() {
         { href: "/", label: "Home", icon: Home },
         { href: "/fixtures", label: "Fixtures", icon: Calendar },
         { href: "/fantasy", label: "Fantasy", icon: Trophy },
+        { href: "/rewards", label: "Rewards", icon: Gift },
         { href: "/stats", label: "Stats", icon: Activity },
         { href: "/teams", label: "Teams", icon: Users },
     ];
