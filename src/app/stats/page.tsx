@@ -51,10 +51,16 @@ export default function StatsPage() {
                         <TacticalMap
                             mode="heatmap"
                             events={[
-                                { x: 50, y: 15, type: "goal" }, { x: 45, y: 12, type: "goal" }, { x: 55, y: 18, type: "goal" },
-                                { x: 20, y: 85, type: "goal" }, { x: 25, y: 82, type: "goal" },
-                                { x: 80, y: 10, type: "goal" },
-                                { x: 50, y: 50, type: "turnover" }, { x: 60, y: 45, type: "turnover" }
+                                { x: 12, y: 10, type: "goal", value: 1 },
+                                { x: 18, y: 18, type: "goal", value: 0.8 },
+                                { x: 82, y: 12, type: "goal", value: 0.95 },
+                                { x: 75, y: 20, type: "goal", value: 0.7 },
+                                { x: 22, y: 82, type: "goal", value: 0.85 },
+                                { x: 15, y: 88, type: "goal", value: 0.75 },
+                                { x: 80, y: 85, type: "goal", value: 0.9 },
+                                { x: 70, y: 78, type: "goal", value: 0.65 },
+                                { x: 50, y: 50, type: "turnover", value: 0.4 },
+                                { x: 60, y: 45, type: "turnover", value: 0.4 },
                             ]}
                         />
                         <p className="text-[10px] text-muted-foreground text-center mt-2">

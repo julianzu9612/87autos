@@ -42,20 +42,31 @@ export function TacticalMap({ events, className, mode = "standard" }: TacticalMa
             {/* Heatmap Layer */}
             {mode === "heatmap" && (
                 <div className="absolute inset-0 z-10">
-                    {events.map((event, i) => (
-                        <div
-                            key={i}
-                            className="absolute rounded-full blur-xl opacity-60"
-                            style={{
-                                left: `${event.x}%`,
-                                top: `${event.y}%`,
-                                width: '15%',
-                                height: '5%',
-                                transform: 'translate(-50%, -50%)',
-                                background: `radial-gradient(circle, ${event.type === 'goal' ? 'rgba(212,175,55,0.8)' : 'rgba(255,50,50,0.6)'} 0%, transparent 70%)`
-                            }}
-                        />
-                    ))}
+                    {events.map((event, i) => {
+                        const intensity = event.value ?? 0.6; // 0..1 controls size/opacity
+                        const size = 18 + intensity * 20; // percent of container width/height
+                        const blur = 12 + intensity * 10;
+                        const baseColor = event.type === "goal" ? "212,175,55" : "255,80,80";
+                        const alpha = 0.35 + intensity * 0.35;
+
+                        return (
+                            <div
+                                key={i}
+                                className="absolute rounded-full"
+                                style={{
+                                    left: `${event.x}%`,
+                                    top: `${event.y}%`,
+                                    width: `${size}%`,
+                                    height: `${size}%`,
+                                    transform: "translate(-50%, -50%)",
+                                    background: `radial-gradient(circle, rgba(${baseColor}, ${alpha}) 0%, rgba(${baseColor}, 0) 65%)`,
+                                    filter: `blur(${blur}px)`,
+                                    mixBlendMode: "screen",
+                                    opacity: 0.9,
+                                }}
+                            />
+                        );
+                    })}
                 </div>
             )}
 
