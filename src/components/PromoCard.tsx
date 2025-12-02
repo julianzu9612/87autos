@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { X, Trophy, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export function PromoCard() {
@@ -73,9 +74,9 @@ export function PromoCard() {
                             Top the fantasy league this month and win a weekend experience with the BMW M4 Competition.
                         </p>
 
-                        <button className="bg-primary text-black text-xs font-bold px-4 py-2 rounded-lg w-fit hover:bg-primary/90 transition-colors">
+                        <Link href="/fantasy" className="bg-primary text-black text-xs font-bold px-4 py-2 rounded-lg w-fit hover:bg-primary/90 transition-colors">
                             Join Fantasy League
-                        </button>
+                        </Link>
                     </>
                 )}
             </div>
